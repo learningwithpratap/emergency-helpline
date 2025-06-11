@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Aid Guide - Emergency Lifeline</title>
+    <meta name="description" content="Step-by-step instructions for common medical emergencies, accessible instantly when you need it most.">
+    <meta name="keywords" content="first aid, medical emergencies, emergency guide, injury, bleeding, burns, CPR, emergency lifeline">
+    <meta name="author" content="Emergency Lifeline Project">
+    <link rel="canonical" href="https://www.yourwebsite.com/first-aid.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body text, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="common.js"></script>
+
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px; /* Wider container for content */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles (Consistent with index.html) */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Matches index.html header width */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .logo img {
+            height: 35px;
+            margin-right: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin: 0;
+            color: #212529;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover, .nav-menu a:focus {
+            background-color: #e0f2f7;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        .nav-current a {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .nav-current a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        .btn-nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling for First Aid Guide Page */
+        .content-section {
+            background-color: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-section p, .content-section ul, .content-section ol {
+            font-size: 1.05rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul, .content-section ol {
+            padding-left: 1.5rem;
+        }
+        .content-section ul {
+            list-style-type: disc;
+        }
+        .content-section ol {
+            list-style-type: decimal;
+        }
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .first-aid-card {
+            background-color: #f0f8ff; /* Light blue background for cards */
+            border: 1px solid #cceeff;
+            border-radius: 0.8rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .first-aid-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .first-aid-card h3 {
+            color: #007bff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .first-aid-card h3 i {
+            font-size: 1.5rem;
+        }
+        .first-aid-card ol {
+            margin-top: 0.5rem;
+        }
+        .first-aid-card li {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .disclaimer {
+            background-color: #fff3cd; /* Light yellow background */
+            border: 1px solid #ffeeba;
+            border-left: 5px solid #ffc107; /* Orange accent */
+            border-radius: 0.8rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #664d03;
+        }
+        .disclaimer strong {
+            color: #856404;
+        }
+
+
+        /* Footer Styles (Consistent with index.html) */
+        footer {
+            background-color: #212529;
+            color: #dee2e6;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.05rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .small-text {
+            font-size: 0.9rem;
+            color: #868e96;
+        }
+
+        /* Responsive adjustments for mobile navigation */
+        @media (max-width: 767px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.6rem;
+                cursor: pointer;
+                padding: 0.4rem;
+                order: 2;
+                color: #343a40;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1.2rem;
+                border-top: 1px solid #e9ecef;
+                padding-top: 1.2rem;
+            }
+            .nav-menu.show {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.6rem 0;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 1.2rem;
+            }
+            .content-section {
+                padding: 1.5rem; /* Adjusted padding for mobile */
+            }
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            .first-aid-card {
+                padding: 1rem;
+            }
+            .first-aid-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <a href="index.html" class="logo" aria-label="Emergency Lifeline Home">
+                <img src="https://i.ibb.co/N7P23Jj/EL-Logo.png" alt="Emergency Lifeline Logo">
+                <h1>Emergency Lifeline</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="nav-toggle" aria-controls="main-nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav-menu" class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="nav-current"><a href="first-aid.html">First Aid</a></li>
+                    <li><a href="symptom-checker.html">Symptom Checker</a></li>
+                    <li><a href="public-alerts.html">Health Alerts</a></li>
+                    <li><a href="mental-health.html">Mental Health</a></li>
+                    <li><a href="emergency-contacts.html">Contacts</a></li>
+                    <li><a href="profile.html" class="btn btn-nav">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <h1>First Aid Guide</h1>
+            <p>
+                Immediate first aid can make a significant difference in an emergency.
+                This guide provides step-by-step instructions for common medical situations.
+                Always prioritize calling emergency services if the situation is severe.
+            </p>
+
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> This First Aid Guide is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. In a medical emergency, always call your local emergency services (e.g., 108 in India) immediately. If in doubt, seek professional medical help.
+            </div>
+
+            <h2>Common First Aid Scenarios</h2>
+
+            <div class="first-aid-card">
+                <h3><i class="fas fa-heartbeat"></i> Cardiopulmonary Resuscitation (CPR)</h3>
+                <p>For an adult who is unresponsive and not breathing normally:</p>
+                <ol>
+                    <li><strong>Call for help:</strong> Call 108 (or your local emergency number) immediately.</li>
+                    <li><strong>Position the person:</strong> Lay the person on their back on a firm surface.</li>
+                    <li><strong>Chest compressions:</strong>
+                        <ul>
+                            <li>Place the heel of one hand in the center of the person's chest, then place the other hand on top.</li>
+                            <li>Keep your arms straight and position your shoulders directly over your hands.</li>
+                            <li>Push hard, at least 2 inches (5 cm) deep, and fast, about 100 to 120 compressions per minute.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Give rescue breaths (if trained):</strong>
+                        <ul>
+                            <li>After 30 compressions, gently tilt the head back and lift the chin to open the airway.</li>
+                            <li>Pinch the nose shut, make a complete seal over their mouth, and give 2 rescue breaths (each lasting about 1 second).</li>
+                            <li>Watch for chest rise with each breath.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Continue:</strong> Keep cycles of 30 compressions and 2 breaths until help arrives or the person shows signs of life.</li>
+                </ol>
+            </div>
+
+            <div class="first-aid-card">
+                <h3><i class="fas fa-hand-holding-medical"></i> Severe Bleeding</h3>
+                <p>For serious cuts or wounds that are bleeding heavily:</p>
+                <ol>
+                    <li><strong>Apply direct pressure:</strong> Use a clean cloth, sterile bandage, or even your hand to apply firm, direct pressure to the wound.</li>
+                    <li><strong>Elevate:</strong> If possible, raise the injured body part above the heart.</li>
+                    <li><strong>Maintain pressure:</strong> Keep applying pressure until the bleeding stops or emergency medical help arrives. Do not remove the first layer of dressing if it becomes soaked; add more layers on top.</li>
+                    <li><strong>Bandage:</strong> Once bleeding stops, secure the dressing with a bandage, but not so tightly that it cuts off circulation.</li>
+                    <li><strong>Seek medical help:</strong> Even if bleeding stops, a severe wound needs professional medical attention.</li>
+                </ol>
+            </div>
+
+            <div class="first-aid-card">
+                <h3><i class="fas fa-fire-alt"></i> Burns</h3>
+                <p>For minor to moderate burns (first and second-degree):</p>
+                <ol>
+                    <li><strong>Cool the burn:</strong> Immediately hold the burned area under cool (not cold) running water for at least 10-20 minutes. Do not use ice.</li>
+                    <li><strong>Remove jewelry/clothing:</strong> Gently remove any rings, watches, or clothing near the burned area before swelling occurs.</li>
+                    <li><strong>Cover the burn:</strong> Loosely cover the burn with a sterile, non-stick bandage or clean cloth.</li>
+                    <li><strong>Pain relief:</strong> Consider over-the-counter pain relievers if needed.</li>
+                    <li><strong>Seek medical help:</strong> For large burns, deep burns, burns to the face, hands, feet, or genitals, or any burn causing extreme pain, seek immediate medical attention.</li>
+                </ol>
+            </div>
+
+            <div class="first-aid-card">
+                <h3><i class="fas fa-bone"></i> Fractures/Sprains</h3>
+                <p>For suspected bone fractures or severe sprains:</p>
+                <ol>
+                    <li><strong>Immobilize:</strong> Do not try to straighten the injured limb. Immobilize the injured area using a splint (e.g., rigid material wrapped with bandages) or by supporting it with soft padding.</li>
+                    <li><strong>Apply ice:</strong> Apply an ice pack wrapped in a cloth to the injured area for 15-20 minutes at a time to reduce swelling and pain.</li>
+                    <li><strong>Elevate:</strong> Elevate the injured limb above the heart if possible.</li>
+                    <li><strong>Seek medical help:</strong> Transport the person to a hospital or clinic for diagnosis and treatment.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 Emergency Lifeline. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="small-text mt-10">
+                Current Location: Dehradun, Uttarakhand, India. | Last Updated: June 11, 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('main-nav-menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

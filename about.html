@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Emergency Lifeline</title>
+    <meta name="description" content="Learn more about Emergency Lifeline's mission, vision, and team.">
+    <meta name="keywords" content="about us, mission, vision, team, emergency lifeline, company info">
+    <meta name="author" content="Emergency Lifeline Project">
+    <link rel="canonical" href="https://www.yourwebsite.com/about.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body text, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px; /* Wider container for content */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles (Consistent with index.html) */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Matches index.html header width */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .logo img {
+            height: 35px;
+            margin-right: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin: 0;
+            color: #212529;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover, .nav-menu a:focus {
+            background-color: #e0f2f7;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        .nav-current a {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .nav-current a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        .btn-nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling for About Us Page */
+        .content-section {
+            background-color: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-section p, .content-section ul, .content-section ol {
+            font-size: 1.05rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul, .content-section ol {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        .content-section ol {
+            list-style-type: decimal;
+        }
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Call to Action for About Page */
+        .about-cta-section {
+            background-color: #e6f7ff; /* Light blue background */
+            padding: 3rem;
+            border-radius: 1.2rem;
+            margin-top: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .about-cta-section h2 {
+            color: #007bff;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-cta-section p {
+            font-size: 1.15rem;
+            color: #343a40;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-cta-section .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        .about-cta-section .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,123,255,0.4);
+        }
+
+
+        /* Footer Styles (Consistent with index.html) */
+        footer {
+            background-color: #212529;
+            color: #dee2e6;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.05rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .small-text {
+            font-size: 0.9rem;
+            color: #868e96;
+        }
+
+        /* Responsive adjustments for mobile navigation */
+        @media (max-width: 767px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.6rem;
+                cursor: pointer;
+                padding: 0.4rem;
+                order: 2;
+                color: #343a40;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1.2rem;
+                border-top: 1px solid #e9ecef;
+                padding-top: 1.2rem;
+            }
+            .nav-menu.show {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.6rem 0;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 1.2rem;
+            }
+            .content-section {
+                padding: 1.5rem; /* Adjusted padding for mobile */
+            }
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            .content-section h3 {
+                font-size: 1.2rem;
+            }
+            .about-cta-section {
+                padding: 2rem;
+            }
+            .about-cta-section h2 {
+                font-size: 1.8rem;
+            }
+            .about-cta-section p {
+                font-size: 1.0rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <a href="index.html" class="logo" aria-label="Emergency Lifeline Home">
+                <img src="https://i.ibb.co/N7P23Jj/EL-Logo.png" alt="Emergency Lifeline Logo">
+                <h1>Emergency Lifeline</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="nav-toggle" aria-controls="main-nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav-menu" class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="first-aid.html">First Aid</a></li>
+                    <li><a href="symptom-checker.html">Symptom Checker</a></li>
+                    <li><a href="public-alerts.html">Health Alerts</a></li>
+                    <li><a href="mental-health.html">Mental Health</a></li>
+                    <li><a href="emergency-contacts.html">Contacts</a></li>
+                    <li><a href="profile.html" class="btn btn-nav">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <h1>About Emergency Lifeline</h1>
+            <p>
+                Welcome to Emergency Lifeline, your dedicated companion for health and safety.
+                Founded in 2025, our mission is to empower individuals with immediate access to
+                critical health information and emergency support, fostering a safer and more
+                prepared community in Dehradun, Uttarakhand, India, and beyond.
+            </p>
+
+            <h2>Our Vision</h2>
+            <p>
+                We envision a world where everyone has the knowledge and tools to respond
+                effectively during health emergencies, minimizing risks and maximizing positive
+                outcomes. We strive to be the leading platform for reliable health information
+                and rapid emergency assistance.
+            </p>
+
+            <h2>What We Offer</h2>
+            <p>
+                Emergency Lifeline brings together a comprehensive suite of features designed
+                to support you through various health scenarios:
+            </p>
+            <ul>
+                <li><strong>Instant Emergency Alerts:</strong> Quickly notify your trusted contacts
+                    and share your live location in critical situations.</li>
+                <li><strong>Interactive First Aid Guides:</strong> Step-by-step instructions for common
+                    medical emergencies, from minor injuries to severe conditions.</li>
+                <li><strong>Intelligent Symptom Checker:</strong> A user-friendly tool to help you
+                    understand your symptoms and decide when to seek professional medical advice.</li>
+                <li><strong>Real-time Public Health Alerts:</strong> Stay informed about local health
+                    advisories, disease outbreaks, and environmental safety notifications.</li>
+                <li><strong>Dedicated Mental Health Support:</strong> Access a directory of resources,
+                    helplines, and local professionals for mental well-being and crisis intervention.</li>
+                <li><strong>Secure Emergency Contacts Management:</strong> Keep all your crucial
+                    emergency contacts organized and accessible for quick dialing.</li>
+            </ul>
+
+            <h2>Our Commitment to You</h2>
+            <p>
+                We are committed to providing accurate, reliable, and user-friendly services.
+                Our content is curated from reputable sources, and our features are designed
+                with your privacy and security in mind. We continuously work to improve and
+                expand our offerings based on user feedback and evolving health needs.
+            </p>
+
+            <h2>Our Team</h2>
+            <p>
+                Emergency Lifeline is developed by a passionate team of healthcare professionals,
+                technology experts, and community advocates dedicated to making a real difference.
+                We believe in the power of technology to enhance public safety and well-being.
+            </p>
+        </section>
+
+        <section class="about-cta-section container">
+            <h2>Join Our Mission for a Safer Community</h2>
+            <p>
+                Be a part of the Emergency Lifeline family and take control of your health and safety.
+                It's free, easy to use, and could be a lifesaver for you and your loved ones.
+            </p>
+            <a href="profile.html" class="btn">
+                <i class="fas fa-user-plus"></i> Create Your Profile Today
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 Emergency Lifeline. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="small-text mt-10">
+                Current Location: Dehradun, Uttarakhand, India. | Last Updated: June 11, 2025
+            </p>
+        </div>
+    </footer>
+    <script src="common.js"></script>
+</body>
+</html>

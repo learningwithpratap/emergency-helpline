@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Checker - Emergency Lifeline</title>
+    <meta name="description" content="Check your symptoms to get potential insights and guidance on whether to seek medical attention.">
+    <meta name="keywords" content="symptom checker, health assessment, medical symptoms, emergency lifeline, health guide">
+    <meta name="author" content="Emergency Lifeline Project">
+    <link rel="canonical" href="https://www.yourwebsite.com/symptom-checker.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body text, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="common.js"></script>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px; /* Wider container for content */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles (Consistent with index.html) */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Matches index.html header width */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .logo img {
+            height: 35px;
+            margin-right: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin: 0;
+            color: #212529;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover, .nav-menu a:focus {
+            background-color: #e0f2f7;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        .nav-current a {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .nav-current a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        .btn-nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling for Symptom Checker Page */
+        .content-section {
+            background-color: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styling */
+        .symptom-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #343a40;
+            font-size: 1rem;
+        }
+        .symptom-form input[type="text"],
+        .symptom-form textarea,
+        .symptom-form select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.6rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .symptom-form input[type="text"]:focus,
+        .symptom-form textarea:focus,
+        .symptom-form select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        .symptom-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .symptom-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        .symptom-form button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,123,255,0.4);
+        }
+
+        #symptomResult {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 0.8rem;
+            background-color: #e6f7ff; /* Light blue background for results */
+            color: #343a40;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: none; /* Hidden by default */
+        }
+        #symptomResult h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 0.8rem;
+        }
+        #symptomResult ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        #symptomResult li {
+            margin-bottom: 0.5rem;
+        }
+        #symptomResult p strong {
+            color: #dc3545; /* Red for urgent advice */
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none; /* Hidden by default */
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer Styles (Consistent with index.html) */
+        footer {
+            background-color: #212529;
+            color: #dee2e6;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.05rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .small-text {
+            font-size: 0.9rem;
+            color: #868e96;
+        }
+
+        /* Responsive adjustments for mobile navigation */
+        @media (max-width: 767px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.6rem;
+                cursor: pointer;
+                padding: 0.4rem;
+                order: 2;
+                color: #343a40;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1.2rem;
+                border-top: 1px solid #e9ecef;
+                padding-top: 1.2rem;
+            }
+            .nav-menu.show {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.6rem 0;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 1.2rem;
+            }
+            .content-section {
+                padding: 1.5rem; /* Adjusted padding for mobile */
+            }
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            .content-section h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <a href="index.html" class="logo" aria-label="Emergency Lifeline Home">
+                <img src="https://i.ibb.co/N7P23Jj/EL-Logo.png" alt="Emergency Lifeline Logo">
+                <h1>Emergency Lifeline</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="nav-toggle" aria-controls="main-nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav-menu" class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="first-aid.html">First Aid</a></li>
+                    <li class="nav-current"><a href="symptom-checker.html">Symptom Checker</a></li>
+                    <li><a href="public-alerts.html">Health Alerts</a></li>
+                    <li><a href="mental-health.html">Mental Health</a></li>
+                    <li><a href="emergency-contacts.html">Contacts</a></li>
+                    <li><a href="profile.html" class="btn btn-nav">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <h1>Symptom Checker</h1>
+            <p>
+                Use our intelligent symptom checker to get potential insights into your health concerns.
+                Please provide detailed information about your symptoms for the best possible assessment.
+                Remember, this tool provides informational guidance and is not a substitute for professional medical advice.
+            </p>
+
+            <h2>Enter Your Symptoms</h2>
+            <form id="symptomForm" class="symptom-form">
+                <div class="mb-4">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="age" placeholder="e.g., 30" required>
+                </div>
+                <div class="mb-4">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="symptoms">Describe Your Symptoms (e.g., fever, headache, sore throat, cough duration):</label>
+                    <textarea id="symptoms" name="symptoms" rows="8" placeholder="Please describe your symptoms in detail, including onset, severity, and any other relevant information." required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="medicalHistory">Relevant Medical History (Optional):</label>
+                    <textarea id="medicalHistory" name="medicalHistory" rows="4" placeholder="Any pre-existing conditions, medications, or allergies?"></textarea>
+                </div>
+                <button type="submit" id="checkSymptomsBtn">
+                    <i class="fas fa-search-plus"></i> Check Symptoms
+                </button>
+            </form>
+
+            <div id="loadingSpinner" class="loading-spinner"></div>
+
+            <div id="symptomResult">
+                <h3>Assessment Results:</h3>
+                <p>Based on the information provided, here is a general assessment and advice:</p>
+                <div id="resultContent"></div>
+                <p class="mt-4"><strong>Disclaimer:</strong> This information is for guidance only and does not constitute medical advice. Always consult with a qualified healthcare professional for diagnosis and treatment.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 Emergency Lifeline. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="small-text mt-10">
+                Current Location: Dehradun, Uttarakhand, India. | Last Updated: June 11, 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('main-nav-menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('show');
+                });
+            }
+
+            const symptomForm = document.getElementById('symptomForm');
+            const symptomResult = document.getElementById('symptomResult');
+            const resultContent = document.getElementById('resultContent');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const checkSymptomsBtn = document.getElementById('checkSymptomsBtn');
+
+            symptomForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                // Show loading spinner and hide previous results
+                loadingSpinner.style.display = 'block';
+                symptomResult.style.display = 'none';
+                resultContent.innerHTML = ''; // Clear previous content
+                checkSymptomsBtn.disabled = true; // Disable button during loading
+
+                const age = document.getElementById('age').value;
+                const gender = document.getElementById('gender').value;
+                const symptoms = document.getElementById('symptoms').value;
+                const medicalHistory = document.getElementById('medicalHistory').value;
+
+                // Construct the prompt for the LLM
+                const prompt = `Based on the following user input, provide a general health assessment and guidance.
+                It is crucial to stress that this is NOT medical advice and users should consult a healthcare professional.
+                Provide potential insights, possible conditions (general categories, not specific diagnoses), and clear advice on next steps (e.g., monitor, rest, see a doctor, seek urgent care).
+                Prioritize safety and advise seeking professional help if there's any doubt or severe symptoms.
+
+                User Information:
+                Age: ${age}
+                Gender: ${gender}
+                Symptoms: ${symptoms}
+                Medical History: ${medicalHistory || 'None provided'}
+
+                Structure the response as:
+                - **General Assessment:** (Brief summary of symptoms)
+                - **Potential Considerations:** (List a few general possibilities, avoid specific diagnoses)
+                - **Recommended Actions:** (Clear bullet points for self-care, when to see a doctor, urgent care, etc.)
+                - **Important Note:** (Reiterate it's not medical advice)
+                `;
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will automatically provide the API key
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        resultContent.innerHTML = marked.parse(text); // Use marked.js to render Markdown
+                        symptomResult.style.display = 'block'; // Show the result container
+                    } else {
+                        resultContent.innerHTML = "<p>Sorry, I couldn't process your request. Please try again or rephrase your symptoms.</p>";
+                        symptomResult.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Error fetching symptom assessment:', error);
+                    resultContent.innerHTML = "<p>An error occurred while checking symptoms. Please try again later.</p>";
+                    symptomResult.style.display = 'block';
+                } finally {
+                    loadingSpinner.style.display = 'none'; // Hide loading spinner
+                    checkSymptomsBtn.disabled = false; // Re-enable button
+                }
+            });
+        });
+    </script>
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>

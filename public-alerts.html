@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Health Alerts - Emergency Lifeline</title>
+    <meta name="description" content="Stay informed with real-time updates on local health advisories, outbreaks, and safety notifications.">
+    <meta name="keywords" content="public health, health alerts, advisories, outbreaks, safety, emergency lifeline, local news">
+    <meta name="author" content="Emergency Lifeline Project">
+    <link rel="canonical" href="https://www.yourwebsite.com/public-alerts.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body text, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="common.js"></script>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px; /* Wider container for content */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles (Consistent with index.html) */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Matches index.html header width */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .logo img {
+            height: 35px;
+            margin-right: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin: 0;
+            color: #212529;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover, .nav-menu a:focus {
+            background-color: #e0f2f7;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        .nav-current a {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .nav-current a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        .btn-nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling for Public Alerts Page */
+        .content-section {
+            background-color: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .alert-list {
+            margin-top: 1.5rem;
+        }
+
+        .alert-item {
+            background-color: #f0f8ff; /* Light blue background for alert item */
+            border: 1px solid #cceeff;
+            border-left: 5px solid #007bff; /* Accent border on left */
+            border-radius: 0.8rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .alert-item.critical {
+            border-left: 5px solid #dc3545; /* Red for critical alerts */
+            background-color: #ffe6e6;
+        }
+        .alert-item.advisory {
+            border-left: 5px solid #ffc107; /* Yellow for advisory alerts */
+            background-color: #fff9e6;
+        }
+
+        .alert-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .alert-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+        .alert-item.critical h3 {
+             color: #dc3545;
+        }
+        .alert-item.advisory h3 {
+             color: #ffc107;
+        }
+
+
+        .alert-item .alert-date {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .alert-item p {
+            font-size: 1.0rem;
+            color: #495057;
+            margin-bottom: 0;
+        }
+
+
+        /* Footer Styles (Consistent with index.html) */
+        footer {
+            background-color: #212529;
+            color: #dee2e6;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.05rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .small-text {
+            font-size: 0.9rem;
+            color: #868e96;
+        }
+
+        /* Responsive adjustments for mobile navigation */
+        @media (max-width: 767px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.6rem;
+                cursor: pointer;
+                padding: 0.4rem;
+                order: 2;
+                color: #343a40;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1.2rem;
+                border-top: 1px solid #e9ecef;
+                padding-top: 1.2rem;
+            }
+            .nav-menu.show {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.6rem 0;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 1.2rem;
+            }
+            .content-section {
+                padding: 1.5rem; /* Adjusted padding for mobile */
+            }
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <a href="index.html" class="logo" aria-label="Emergency Lifeline Home">
+                <img src="https://i.ibb.co/N7P23Jj/EL-Logo.png" alt="Emergency Lifeline Logo">
+                <h1>Emergency Lifeline</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="nav-toggle" aria-controls="main-nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav-menu" class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="first-aid.html">First Aid</a></li>
+                    <li><a href="symptom-checker.html">Symptom Checker</a></li>
+                    <li class="nav-current"><a href="public-alerts.html">Health Alerts</a></li>
+                    <li><a href="mental-health.html">Mental Health</a></li>
+                    <li><a href="emergency-contacts.html">Contacts</a></li>
+                    <li><a href="profile.html" class="btn btn-nav">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <h1>Public Health Alerts</h1>
+            <p>
+                Stay informed with the latest public health advisories, safety notifications,
+                and information about local health concerns in your area.
+            </p>
+
+            <h2>Recent Alerts</h2>
+            <div class="alert-list" id="alertsContainer">
+                <!-- Alerts will be loaded here dynamically by JavaScript -->
+            </div>
+            <p class="text-center text-gray-500 mt-4">
+                Information updated regularly. Always follow local health authority guidelines.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 Emergency Lifeline. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="small-text mt-10">
+                Current Location: Dehradun, Uttarakhand, India. | Last Updated: June 11, 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('main-nav-menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('show');
+                });
+            }
+
+            // Mock data for public health alerts
+            const publicAlerts = [
+                {
+                    id: 1,
+                    type: 'critical', // 'critical', 'advisory', 'info'
+                    title: 'Monsoon Season Dengue Alert in Dehradun',
+                    date: 'June 10, 2025',
+                    description: 'Due to recent heavy rainfall, there is an increased risk of dengue fever. Residents are advised to eliminate stagnant water sources, use mosquito repellents, and ensure proper screening of doors and windows. Seek medical attention if you experience fever, severe headache, or joint pain.'
+                },
+                {
+                    id: 2,
+                    type: 'advisory',
+                    title: 'Heatwave Advisory: Stay Hydrated and Indoors',
+                    date: 'June 08, 2025',
+                    description: 'A severe heatwave is expected across Uttarakhand for the next 72 hours. Stay hydrated, avoid direct sun exposure between 11 AM and 4 PM, and check on elderly neighbors. Symptoms of heatstroke include high body temperature, confusion, and rapid pulse. Call emergency services if someone shows these signs.'
+                },
+                {
+                    id: 3,
+                    type: 'info',
+                    title: 'Seasonal Flu Vaccination Drive Announced',
+                    date: 'May 25, 2025',
+                    description: 'The local health department announces a free seasonal flu vaccination drive starting July 1st at community health centers. All residents, especially those at high risk, are encouraged to get vaccinated. Check our "Health Alerts" section for vaccination center locations and timings.'
+                },
+                {
+                    id: 4,
+                    type: 'info',
+                    title: 'Food Safety Tips for Summer Festivals',
+                    date: 'May 20, 2025',
+                    description: 'As summer festivals approach, remember to practice food safety. Wash hands thoroughly, cook food to safe temperatures, and refrigerate leftovers promptly. Be mindful of street food hygiene to prevent foodborne illnesses.'
+                }
+            ];
+
+            const alertsContainer = document.getElementById('alertsContainer');
+
+            // Function to display alerts
+            function displayAlerts() {
+                if (publicAlerts.length === 0) {
+                    alertsContainer.innerHTML = '<p class="text-center text-gray-500">No public health alerts available at this time.</p>';
+                    return;
+                }
+
+                publicAlerts.forEach(alert => {
+                    const alertItem = document.createElement('div');
+                    let typeClass = '';
+                    if (alert.type === 'critical') {
+                        typeClass = 'critical';
+                    } else if (alert.type === 'advisory') {
+                        typeClass = 'advisory';
+                    }
+
+                    alertItem.className = `alert-item ${typeClass}`;
+                    alertItem.innerHTML = `
+                        <h3>${alert.title}</h3>
+                        <span class="alert-date">${alert.date}</span>
+                        <p>${alert.description}</p>
+                    `;
+                    alertsContainer.appendChild(alertItem);
+                });
+            }
+
+            displayAlerts(); // Call function to display alerts on page load
+        });
+    </script>
+</body>
+</html>

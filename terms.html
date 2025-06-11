@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Emergency Lifeline</title>
+    <meta name="description" content="Read the Terms of Service for Emergency Lifeline.">
+    <meta name="keywords" content="terms of service, legal, emergency lifeline, terms, conditions">
+    <meta name="author" content="Emergency Lifeline Project">
+    <meta name="robots" content="noindex, nofollow"> <!-- Typically noindex for TOS pages unless specific SEO strategy -->
+    <link rel="canonical" href="https://www.yourwebsite.com/terms.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body text, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="common.js"></script>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px; /* Wider container for content */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles (Consistent with index.html) */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Matches index.html header width */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .logo img {
+            height: 35px;
+            margin-right: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin: 0;
+            color: #212529;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover, .nav-menu a:focus {
+            background-color: #e0f2f7;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        .nav-current a {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .nav-current a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        .btn-nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling for Terms of Service */
+        .content-section {
+            background-color: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-section p, .content-section ul {
+            font-size: 1.05rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .content-section ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .content-section ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 2rem;
+        }
+
+        /* Footer Styles (Consistent with index.html) */
+        footer {
+            background-color: #212529;
+            color: #dee2e6;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.05rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .small-text {
+            font-size: 0.9rem;
+            color: #868e96;
+        }
+
+        /* Responsive adjustments for mobile navigation */
+        @media (max-width: 767px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.6rem;
+                cursor: pointer;
+                padding: 0.4rem;
+                order: 2;
+                color: #343a40;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1.2rem;
+                border-top: 1px solid #e9ecef;
+                padding-top: 1.2rem;
+            }
+            .nav-menu.show {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.6rem 0;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 1.2rem;
+            }
+            .content-section {
+                padding: 1.5rem; /* Adjusted padding for mobile */
+            }
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            .content-section h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <a href="index.html" class="logo" aria-label="Emergency Lifeline Home">
+                <img src="https://i.ibb.co/N7P23Jj/EL-Logo.png" alt="Emergency Lifeline Logo">
+                <h1>Emergency Lifeline</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="nav-toggle" aria-controls="main-nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav-menu" class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="first-aid.html">First Aid</a></li>
+                    <li><a href="symptom-checker.html">Symptom Checker</a></li>
+                    <li><a href="public-alerts.html">Health Alerts</a></li>
+                    <li><a href="mental-health.html">Mental Health</a></li>
+                    <li><a href="emergency-contacts.html">Contacts</a></li>
+                    <li><a href="profile.html" class="btn btn-nav">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last Updated: June 11, 2025</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+                By accessing or using the Emergency Lifeline website and services ("Service"), you agree to be bound by these Terms of Service ("Terms").
+                If you disagree with any part of the terms, then you may not access the Service.
+            </p>
+
+            <h2>2. Use of Service</h2>
+            <h3>2.1 Eligibility</h3>
+            <p>
+                You must be at least 18 years old or the age of majority in your jurisdiction to use this Service.
+                By using the Service, you represent and warrant that you meet this requirement.
+            </p>
+
+            <h3>2.2 Permitted Use</h3>
+            <p>
+                The Service is provided for informational purposes related to health and safety, including first aid guidance,
+                symptom checking, public health alerts, mental health support, and emergency contact management.
+                You agree to use the Service only for lawful purposes and in accordance with these Terms.
+            </p>
+
+            <h3>2.3 Prohibited Use</h3>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the Service for any illegal or unauthorized purpose.</li>
+                <li>Engage in any activity that interferes with or disrupts the Service or the servers and networks connected to the Service.</li>
+                <li>Attempt to gain unauthorized access to any portion of the Service, other accounts, computer systems, or networks connected to the Service.</li>
+                <li>Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Service without express written permission.</li>
+                <li>Transmit any harmful or malicious code, viruses, or other destructive files.</li>
+            </ul>
+
+            <h2>3. Disclaimer of Medical Advice</h2>
+            <p>
+                The information provided by Emergency Lifeline is for general informational and educational purposes only and is not intended as medical advice.
+                It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified healthcare provider
+                for any questions you may have regarding a medical condition or before making any decisions related to your health.
+                In case of a medical emergency, call your local emergency services immediately.
+            </p>
+
+            <h2>4. User Accounts</h2>
+            <h3>4.1 Account Creation</h3>
+            <p>
+                Some features of the Service may require you to create an account. You agree to provide accurate, current, and complete information during
+                the registration process and to update such information to keep it accurate, current, and complete.
+            </p>
+            <h3>4.2 Account Security</h3>
+            <p>
+                You are responsible for maintaining the confidentiality of your account login information and for all activities that occur under your account.
+                You agree to notify Emergency Lifeline immediately of any unauthorized use of your account.
+            </p>
+
+            <h2>5. Privacy</h2>
+            <p>
+                Your use of the Service is also governed by our Privacy Policy, which is incorporated by reference into these Terms.
+                Please review our Privacy Policy at <a href="privacy.html" class="text-blue-600 hover:underline">privacy.html</a> to understand our practices regarding your personal data.
+            </p>
+
+            <h2>6. Intellectual Property</h2>
+            <p>
+                The Service and its original content, features, and functionality are and will remain the exclusive property of Emergency Lifeline Project and its licensors.
+                The Service is protected by copyright, trademark, and other laws of both the India and foreign countries.
+            </p>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>
+                In no event shall Emergency Lifeline, nor its directors, employees, partners, agents, suppliers, or affiliates,
+                be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation,
+                loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or
+                inability to access or use the Service; (ii) any conduct or content of any third party on the Service;
+                (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your
+                transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory,
+                whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found
+                to have failed of its essential purpose.
+            </p>
+
+            <h2>8. Governing Law</h2>
+            <p>
+                These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.
+            </p>
+
+            <h2>9. Changes to Terms</h2>
+            <p>
+                We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
+                If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.
+                What constitutes a material change will be determined at our sole discretion.
+            </p>
+
+            <h2>10. Contact Us</h2>
+            <p>
+                If you have any questions about these Terms, please contact us at <a href="contact.html" class="text-blue-600 hover:underline">raibaar</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 Emergency Lifeline. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="small-text mt-10">
+                Current Location: Dehradun, Uttarakhand, India. | Last Updated: June 11, 2025
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

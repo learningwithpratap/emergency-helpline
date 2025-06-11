@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contacts - Emergency Lifeline</title>
+    <meta name="description" content="Manage your emergency contacts for rapid alerts and location sharing in critical situations.">
+    <meta name="keywords" content="emergency contacts, personal security, crisis alert, location sharing, emergency lifeline">
+    <meta name="author" content="Emergency Lifeline Project">
+    <link rel="canonical" href="https://www.yourwebsite.com/emergency-contacts.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body text, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40; /* Darker text */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px; /* Wider container for content */
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles (Consistent with index.html) */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Matches index.html header width */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #343a40;
+        }
+        .logo img {
+            height: 35px;
+            margin-right: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin: 0;
+            color: #212529;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .nav-menu a:hover, .nav-menu a:focus {
+            background-color: #e0f2f7;
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+        .nav-current a {
+            background-color: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .nav-current a:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        .btn-nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 0.95rem;
+        }
+        .btn-nav:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Styling for Emergency Contacts Page */
+        .content-section {
+            background-color: #ffffff;
+            border-radius: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .content-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            font-size: 1.05rem;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styling */
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #343a40;
+            font-size: 1rem;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="tel"] {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.6rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="tel"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+        .contact-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.8rem 1.8rem;
+            border-radius: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,123,255,0.4);
+        }
+
+        .contact-list-container {
+            margin-top: 1.5rem;
+            border-top: 1px solid #e9ecef;
+            padding-top: 1.5rem;
+        }
+        .contact-item {
+            background-color: #f0f8ff; /* Light blue background for contact item */
+            border: 1px solid #cceeff;
+            border-radius: 0.8rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .contact-item div {
+            flex-grow: 1;
+        }
+        .contact-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: #343a40;
+        }
+        .contact-item .contact-name {
+            font-weight: 600;
+            color: #007bff;
+        }
+        .contact-actions button {
+            background: none;
+            border: none;
+            color: #dc3545; /* Red for delete */
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 1.2rem;
+            transition: color 0.2s ease-in-out;
+        }
+        .contact-actions button:hover {
+            color: #c82333;
+        }
+        .contact-actions .edit-btn {
+            color: #007bff;
+        }
+        .contact-actions .edit-btn:hover {
+            color: #0056b3;
+        }
+        .user-id-display {
+            background-color: #e2e8f0;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.8rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #4a5568;
+            word-break: break-all; /* Ensures long IDs wrap */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .user-id-display strong {
+            color: #1a202c;
+        }
+        .copy-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+        /* Auth Status */
+        #authStatus {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+
+        /* Custom Modal for Alerts */
+        .custom-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+        }
+
+        .custom-modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .custom-modal-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 1rem;
+        }
+
+        .custom-modal-content p {
+            font-size: 1rem;
+            color: #495057;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .custom-modal-content button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 0.6rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border: none;
+        }
+
+        .custom-modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styles (Consistent with index.html) */
+        footer {
+            background-color: #212529;
+            color: #dee2e6;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease-in-out;
+            font-size: 1.05rem;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .small-text {
+            font-size: 0.9rem;
+            color: #868e96;
+        }
+
+        /* Responsive adjustments for mobile navigation */
+        @media (max-width: 767px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.6rem;
+                cursor: pointer;
+                padding: 0.4rem;
+                order: 2;
+                color: #343a40;
+            }
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1.2rem;
+                border-top: 1px solid #e9ecef;
+                padding-top: 1.2rem;
+            }
+            .nav-menu.show {
+                display: flex;
+            }
+            .nav-menu li {
+                margin: 0.6rem 0;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+            .btn-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 1.2rem;
+            }
+            .content-section {
+                padding: 1.5rem; /* Adjusted padding for mobile */
+            }
+            .content-section h1 {
+                font-size: 2rem;
+            }
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+            .contact-form button {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+            }
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .contact-actions {
+                margin-top: 0.5rem;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+            .user-id-display {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .copy-btn {
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <a href="index.html" class="logo" aria-label="Emergency Lifeline Home">
+                <img src="https://i.ibb.co/N7P23Jj/EL-Logo.png" alt="Emergency Lifeline Logo">
+                <h1>Emergency Lifeline</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="nav-toggle" aria-controls="main-nav-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="main-nav-menu" class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="first-aid.html">First Aid</a></li>
+                    <li><a href="symptom-checker.html">Symptom Checker</a></li>
+                    <li><a href="public-alerts.html">Health Alerts</a></li>
+                    <li><a href="mental-health.html">Mental Health</a></li>
+                    <li class="nav-current"><a href="emergency-contacts.html">Contacts</a></li>
+                    <li><a href="profile.html" class="btn btn-nav">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section container">
+            <h1>Emergency Contacts</h1>
+            <p>
+                Add and manage your trusted emergency contacts. In a critical situation,
+                you can quickly alert these contacts and share your location.
+            </p>
+
+            <div id="authStatus">Loading authentication...</div>
+            <div id="userIdDisplay" class="user-id-display" style="display: none;">
+                Your User ID: <strong id="currentUserId"></strong>
+                <button id="copyUserIdBtn" class="copy-btn">Copy ID</button>
+            </div>
+
+            <h2>Add/Edit Emergency Contact</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="hidden" id="contactId" name="contactId">
+                <div class="mb-4">
+                    <label for="contactName">Contact Name:</label>
+                    <input type="text" id="contactName" name="contactName" placeholder="e.g., John Doe" required>
+                </div>
+                <div class="mb-4">
+                    <label for="contactRelationship">Relationship:</label>
+                    <input type="text" id="contactRelationship" name="contactRelationship" placeholder="e.g., Parent, Friend" required>
+                </div>
+                <div class="mb-4">
+                    <label for="contactPhone">Phone Number:</label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="+91 98765 43210" required>
+                </div>
+                <button type="submit" id="addContactBtn"><i class="fas fa-user-plus"></i> Add Contact</button>
+                <button type="button" id="updateContactBtn" style="display:none;"><i class="fas fa-edit"></i> Update Contact</button>
+                <button type="button" id="cancelEditBtn" style="display:none;" class="ml-2 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"><i class="fas fa-times"></i> Cancel</button>
+            </form>
+
+            <h2>Your Emergency Contacts</h2>
+            <div class="contact-list-container" id="emergencyContactList">
+                <!-- Emergency contacts will be loaded here dynamically -->
+                <p class="text-center text-gray-500">No emergency contacts added yet.</p>
+            </div>
+
+            <h2>Trigger Emergency Alert</h2>
+            <p>
+                In a real emergency, click the button below to send an alert to all your
+                registered contacts with your current location.
+            </p>
+            <div class="text-center">
+                <button id="triggerAlertBtn" class="btn bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle"></i> Send Emergency Alert
+                </button>
+            </div>
+            <p id="alertMessage" class="text-center text-red-500 mt-2" style="display:none;"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2025 Emergency Lifeline. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="small-text mt-10">
+                Current Location: Dehradun, Uttarakhand, India. | Last Updated: June 11, 2025
+            </p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal Structure -->
+    <div id="customModalOverlay" class="custom-modal-overlay">
+        <div class="custom-modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <button id="modalCloseBtn">OK</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection, query, onSnapshot, addDoc, updateDoc, deleteDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global Firebase variables
+        let app;
+        let db;
+        let auth;
+        let userId = null;
+        let authReady = false;
+
+        // Firebase configuration and initialization
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // Custom Modal Functions
+        function showModal(title, message) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('customModalOverlay').style.display = 'flex';
+        }
+
+        function hideModal() {
+            document.getElementById('customModalOverlay').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Event listener for modal close button
+            document.getElementById('modalCloseBtn').addEventListener('click', hideModal);
+
+
+            // Initialize Firebase App
+            if (Object.keys(firebaseConfig).length > 0) {
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Authenticate user
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                } catch (error) {
+                    console.error("Firebase authentication error:", error);
+                    document.getElementById('authStatus').textContent = "Authentication failed. Some features may not work.";
+                }
+
+                // Listen for auth state changes
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        document.getElementById('authStatus').textContent = `Authenticated as: ${userId}`;
+                        document.getElementById('currentUserId').textContent = userId;
+                        document.getElementById('userIdDisplay').style.display = 'flex';
+                        authReady = true;
+                        loadEmergencyContacts();
+                    } else {
+                        userId = null;
+                        document.getElementById('authStatus').textContent = "Not authenticated.";
+                        document.getElementById('userIdDisplay').style.display = 'none';
+                        authReady = false;
+                        console.log("User is signed out or anonymous.");
+                    }
+                });
+            } else {
+                document.getElementById('authStatus').textContent = "Firebase config missing. Cannot connect to database.";
+                console.error("Firebase configuration is missing.");
+            }
+
+            // Mobile navigation toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('main-nav-menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('show');
+                });
+            }
+
+            // Copy User ID to clipboard
+            document.getElementById('copyUserIdBtn').addEventListener('click', () => {
+                const userIdText = document.getElementById('currentUserId').textContent;
+                if (userIdText) {
+                    // Use document.execCommand('copy') as navigator.clipboard.writeText() may not work in iframes
+                    const textArea = document.createElement('textarea');
+                    textArea.value = userIdText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showModal('Copied!', 'User ID copied to clipboard!');
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        showModal('Error', 'Failed to copy User ID.');
+                    }
+                    document.body.removeChild(textArea);
+                }
+            });
+
+            // Emergency Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            const addContactBtn = document.getElementById('addContactBtn');
+            const updateContactBtn = document.getElementById('updateContactBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const contactIdField = document.getElementById('contactId');
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!authReady || !userId) {
+                    showModal("Authentication Required", "Please wait for authentication to complete or sign in.");
+                    return;
+                }
+
+                const contactData = {
+                    name: document.getElementById('contactName').value,
+                    relationship: document.getElementById('contactRelationship').value,
+                    phone: document.getElementById('contactPhone').value
+                };
+
+                try {
+                    const contactsCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/emergency_contacts`);
+                    if (contactIdField.value) { // Update existing contact
+                        const contactDocRef = doc(db, `artifacts/${appId}/users/${userId}/emergency_contacts`, contactIdField.value);
+                        await updateDoc(contactDocRef, contactData);
+                        showModal('Success!', 'Contact updated successfully!');
+                    } else { // Add new contact
+                        await addDoc(contactsCollectionRef, contactData);
+                        showModal('Success!', 'Contact added successfully!');
+                    }
+                    contactForm.reset(); // Clear form
+                    contactIdField.value = ''; // Clear ID
+                    addContactBtn.style.display = 'inline-flex';
+                    updateContactBtn.style.display = 'none';
+                    cancelEditBtn.style.display = 'none';
+                } catch (error) {
+                    console.error("Error saving contact:", error);
+                    showModal('Error', 'Error saving contact. Please try again.');
+                }
+            });
+
+            cancelEditBtn.addEventListener('click', () => {
+                contactForm.reset();
+                contactIdField.value = '';
+                addContactBtn.style.display = 'inline-flex';
+                updateContactBtn.style.display = 'none';
+                cancelEditBtn.style.display = 'none';
+            });
+
+            // Load emergency contacts from Firestore in real-time
+            function loadEmergencyContacts() {
+                if (!userId) {
+                    console.log("No user ID available to load contacts.");
+                    return;
+                }
+                try {
+                    const contactsCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/emergency_contacts`);
+                    // Listen for real-time updates
+                    onSnapshot(contactsCollectionRef, (snapshot) => {
+                        const contactListDiv = document.getElementById('emergencyContactList');
+                        contactListDiv.innerHTML = ''; // Clear current list
+                        if (snapshot.empty) {
+                            contactListDiv.innerHTML = '<p class="text-center text-gray-500">No emergency contacts added yet.</p>';
+                            return;
+                        }
+
+                        snapshot.forEach((doc) => {
+                            const contact = doc.data();
+                            const contactItem = document.createElement('div');
+                            contactItem.className = 'contact-item';
+                            contactItem.innerHTML = `
+                                <div>
+                                    <p class="contact-name">${contact.name} (${contact.relationship})</p>
+                                    <p>Phone: ${contact.phone}</p>
+                                </div>
+                                <div class="contact-actions">
+                                    <button class="edit-btn" data-id="${doc.id}" data-name="${contact.name}" data-relationship="${contact.relationship}" data-phone="${contact.phone}">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="delete-btn" data-id="${doc.id}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            `;
+                            contactListDiv.appendChild(contactItem);
+                        });
+
+                        // Attach event listeners to new edit/delete buttons
+                        contactListDiv.querySelectorAll('.edit-btn').forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                const id = e.currentTarget.dataset.id;
+                                const name = e.currentTarget.dataset.name;
+                                const relationship = e.currentTarget.dataset.relationship;
+                                const phone = e.currentTarget.dataset.phone;
+
+                                document.getElementById('contactId').value = id;
+                                document.getElementById('contactName').value = name;
+                                document.getElementById('contactRelationship').value = relationship;
+                                document.getElementById('contactPhone').value = phone;
+
+                                addContactBtn.style.display = 'none';
+                                updateContactBtn.style.display = 'inline-flex';
+                                cancelEditBtn.style.display = 'inline-flex';
+                            });
+                        });
+
+                        contactListDiv.querySelectorAll('.delete-btn').forEach(button => {
+                            button.addEventListener('click', async (e) => {
+                                const contactIdToDelete = e.currentTarget.dataset.id;
+                                // Use custom confirmation dialog instead of alert/confirm
+                                showModal('Confirm Deletion', 'Are you sure you want to delete this contact?', async () => {
+                                    try {
+                                        const contactDocRef = doc(db, `artifacts/${appId}/users/${userId}/emergency_contacts`, contactIdToDelete);
+                                        await deleteDoc(contactDocRef);
+                                        showModal('Success!', 'Contact deleted successfully!');
+                                    } catch (error) {
+                                        console.error("Error deleting contact:", error);
+                                        showModal('Error', 'Error deleting contact. Please try again.');
+                                    } finally {
+                                        hideModal(); // Ensure modal is hidden after confirmation
+                                    }
+                                });
+                            });
+                        });
+                    });
+                } catch (error) {
+                    console.error("Error setting up contact listener:", error);
+                }
+            }
+
+            // Emergency Alert Functionality
+            document.getElementById('triggerAlertBtn').addEventListener('click', async () => {
+                const alertMessageDiv = document.getElementById('alertMessage');
+                alertMessageDiv.style.display = 'none';
+                alertMessageDiv.textContent = '';
+
+                if (!authReady || !userId) {
+                    alertMessageDiv.textContent = "Please wait for authentication to complete or sign in.";
+                    alertMessageDiv.style.display = 'block';
+                    return;
+                }
+
+                // Get current location
+                let locationData = "Location not available.";
+                try {
+                    const position = await new Promise((resolve, reject) => {
+                        navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 });
+                    });
+                    locationData = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+                    locationData += ` (Accuracy: ${position.coords.accuracy} meters)`;
+                    console.log("Location obtained:", locationData);
+                } catch (error) {
+                    console.error("Error getting location:", error);
+                    alertMessageDiv.textContent = "Error getting location. Please ensure location services are enabled.";
+                    alertMessageDiv.style.display = 'block';
+                    return;
+                }
+
+                // Fetch current user's profile information
+                let userName = "User";
+                let userPhone = "N/A";
+                let medicalInfo = "No medical info provided.";
+                try {
+                    const userProfileDocRef = doc(db, `artifacts/${appId}/users/${userId}/profile`, 'myProfile');
+                    const profileSnap = await getDoc(userProfileDocRef);
+                    if (profileSnap.exists()) {
+                        const profileData = profileSnap.data();
+                        userName = profileData.fullName || "User";
+                        userPhone = profileData.phone || "N/A";
+                        const allergies = Array.isArray(profileData.allergies) && profileData.allergies.length > 0 ? `Allergies: ${profileData.allergies.join(', ')}` : '';
+                        const conditions = Array.isArray(profileData.medicalConditions) && profileData.medicalConditions.length > 0 ? `Medical Conditions: ${profileData.medicalConditions.join(', ')}` : '';
+                        const meds = Array.isArray(profileData.medications) && profileData.medications.length > 0 ? `Medications: ${profileData.medications.join(', ')}` : '';
+
+                        medicalInfo = [allergies, conditions, meds].filter(Boolean).join('; ') || "No medical info provided.";
+                    }
+                } catch (error) {
+                    console.error("Error fetching user profile for alert:", error);
+                }
+
+                // Fetch all emergency contacts
+                let contactsToSendAlert = [];
+                try {
+                    const contactsCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/emergency_contacts`);
+                    const contactsSnapshot = await getDocs(contactsCollectionRef);
+                    contactsSnapshot.forEach(doc => {
+                        contactsToSendAlert.push(doc.data());
+                    });
+                } catch (error) {
+                    console.error("Error fetching emergency contacts for alert:", error);
+                }
+
+                if (contactsToSendAlert.length === 0) {
+                    alertMessageDiv.textContent = "No emergency contacts found. Please add contacts to send an alert.";
+                    alertMessageDiv.style.display = 'block';
+                    return;
+                }
+
+                // Simulate sending alerts (in a real app, this would involve sending SMS/notifications)
+                let simulatedAlerts = [];
+                contactsToSendAlert.forEach(contact => {
+                    const alertText = `EMERGENCY ALERT! ${userName} needs urgent help.
+                    Contact: ${userPhone}.
+                    Location: ${locationData}.
+                    Medical Info: ${medicalInfo}.
+                    Please call ${contact.name} at ${contact.phone} for details.`;
+                    simulatedAlerts.push(`Sending alert to ${contact.name} (${contact.phone}): "${alertText}"`);
+                });
+
+                alertMessageDiv.innerHTML = `<p class="font-bold">Emergency Alert Sent (Simulation):</p><p>Alerts would be sent to your ${contactsToSendAlert.length} contacts.</p><p>Details simulated:</p>`;
+                simulatedAlerts.forEach(alert => {
+                    alertMessageDiv.innerHTML += `<p class="ml-4 text-sm">${alert}</p>`;
+                });
+                alertMessageDiv.style.display = 'block';
+
+                // In a real application, you would make an API call here to send actual SMS/notifications
+                // Example:
+                // await fetch('/api/send-emergency-alert', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({
+                //         userId: userId,
+                //         location: locationData,
+                //         profile: { name: userName, phone: userPhone, medical: medicalInfo },
+                //         contacts: contactsToSendAlert
+                //     })
+                // });
+            });
+        });
+    </script>
+    <script src="common.js"></script>
+</body>
+</html>
